@@ -32,8 +32,6 @@ def render(data, src_path, out_path, temp_ext):
         raise Exception(msg)
 
     env.globals['raise'] = raise_msg
-
-    # Add environ global
     env.globals["get_context"] = lambda: data
 
     for template in collect_files_by_extension(temp_ext, src_path):

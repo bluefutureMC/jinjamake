@@ -1,1 +1,1 @@
-@python %0\..\jmake.py %*
+@python "%~dp0\jnmake.py" %*
