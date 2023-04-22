@@ -36,7 +36,7 @@ def render(data, src_path, out_path, temp_ext):
 
     for template in collect_files_by_extension(temp_ext, src_path):
         relative_template_path = os.path.relpath(template, start=src_path)
-        rendered_content = env.get_template(relative_template_path).render(data)
+        rendered_content = env.get_template(relative_template_path.replace('\\', '/')).render(data)
         relative_out_path = os.path.join(out_path, relative_template_path[:-len(temp_ext)])
 
         os.makedirs(os.path.dirname(relative_out_path), exist_ok=True)
